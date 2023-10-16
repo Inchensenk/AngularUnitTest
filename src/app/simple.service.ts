@@ -10,6 +10,10 @@ export class SimpleService {
       return undefined;
     }
 
+    if(!arg1){
+      return 22;
+    }
+
     return arg1 + arg2;
   }
 

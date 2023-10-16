@@ -1,16 +1,26 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
+import { CheckValueService } from "./check-value.service";
 
-import { CheckValueService } from './check-value.service';
+describe('Сервис проверки значения', () =>{
+let service: CheckValueService;
 
-describe('CheckValueService', () => {
-  let service: CheckValueService;
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(CheckValueService);
+beforeEach(()=>{
+  TestBed.configureTestingModule({
+    providers:[
+      CheckValueService
+    ]
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+  service = TestBed.inject(CheckValueService);
+});
+
+it('должен создавать экземпляр классса', ()=>{
+  expect(service).toBeTruthy();
+});
+
+it('должен проверять значение', ()=>{
+  const value =service.check();
+
+  expect(value).toBeTruthy();
+});
 });
